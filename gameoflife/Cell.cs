@@ -83,6 +83,10 @@ namespace Game_of_Life
         {
             return Condition;
         }
+        public override string ToString()
+        {
+            return this.GetCondition().ToString();
+        }
         public void SetCondition(byte condition)
         {
 
