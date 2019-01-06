@@ -1,0 +1,42 @@
+﻿<Window x:Class="Game_of_Life.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Game of Life"  Height="800" Width="820" SizeChanged="WindowSizeChanged">
+    <Grid x:Name="Form1" Margin="10,0,0,0" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="91*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="82*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="Auto" MinHeight="724"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <Button Content="START" Name="StartButton"  HorizontalAlignment="Left" Margin="59,10,0,0" VerticalAlignment="Top" Width="75" Click="StartGenerating" Grid.Row="1" Height="20" Grid.ColumnSpan="2"/>
+        <Button x:Name="ClearButton" Content="CLEAR" HorizontalAlignment="Left" Margin="77,10,0,0" VerticalAlignment="Top" Width="75" Click="Clear" Grid.Column="1" Grid.Row="1" Height="20"/>
+        <Button x:Name="RandomButton" Content="Random" HorizontalAlignment="Left" Margin="182,10,0,0" VerticalAlignment="Top" Width="75" Click="Random_Button_Gen" Grid.Column="1" Grid.Row="1" Height="20"/>
+        <Label x:Name="GenerationsDataLabel" Content="..." HorizontalAlignment="Left" Margin="260,4,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Height="26" Width="312"/>
+        <Label x:Name="CounterLabel" Content="..." HorizontalAlignment="Left" Margin="259,35,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Height="26" Width="427" Grid.ColumnSpan="3"/>
+        <Slider x:Name="RandomTrackbar" HorizontalAlignment="Left" Margin="181,45,0,0" VerticalAlignment="Top" Width="75" Maximum="49" ValueChanged="Slider_Change" Grid.Column="1" Grid.Row="1" Height="18"/>
+        <Label x:Name="RandomLabel" Content="Chance to live on random: 50%" HorizontalAlignment="Left" Margin="61,39,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="175" Grid.ColumnSpan="2"
+               Grid.Column="0" />
+        <ScrollViewer x:Name="scrollviewer1" HorizontalAlignment="Left" Height="600" Margin="0,118,0,0" VerticalAlignment="Top" Width="600" CanContentScroll="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Column="1" Grid.Row="1">
+            <Canvas x:Name="FrontCanvas" HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="600"  MouseRightButtonDown="FrontCanvas_MouseRightButtonDown"   MouseLeftButtonDown="Mouse_L_down" MouseMove="Mouse_Move"  />
+        </ScrollViewer>
+        <Label x:Name="SizeLabel" Content="Size: Column            Row         Minimum length of rectangle" HorizontalAlignment="Left" Margin="7,65,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Height="26" Width="324"/>
+        <TextBox x:Name="TextBoxWidth" HorizontalAlignment="Left" Height="23" Margin="37,87,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50" Grid.Column="1" Grid.Row="1" />
+        <TextBox x:Name="TextBoxHeight" HorizontalAlignment="Left" Height="23" Margin="99,87,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50" Grid.Column="1" Grid.Row="1" />
+        <Button x:Name="UpdateSizeButton" Content="UPDATE SIZE" HorizontalAlignment="Left" Margin="256,87,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Grid.Row="1" Click="UpdateSizeButtonClick" Height="20" />
+        <TextBox x:Name="MinWidthHeight" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="170,87,0,0" Grid.Row="1" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="36"/>
+        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="3,119,0,0" Grid.Row="1" Grid.Column="0"
+                VerticalAlignment="Top" Width="52" Click="Save_Click"/>
+        <Button x:Name="Load" Content="Load" HorizontalAlignment="Left" Margin="3,159,0,0" Grid.Row="1" Grid.Column="0"
+                VerticalAlignment="Top" Width="52" Click="Load_Click"/>
+        <Label x:Name="GameLabel" Content="..." Grid.Column="1" HorizontalAlignment="Left" Margin="336,84,0,0" Grid.Row="1" VerticalAlignment="Top" Width="264"/>
+    </Grid>
+</Window>
